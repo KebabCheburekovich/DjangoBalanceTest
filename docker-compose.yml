@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  back:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - .:/app_back
+    ports:
+      - "8000:8000"
+    networks:
+      - internal_network
+
+networks:
+  internal_network:
+    driver: bridge
